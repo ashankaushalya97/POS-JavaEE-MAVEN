@@ -1,5 +1,7 @@
 package lk.ijse.dep.pos.service;
 
+import org.apache.commons.dbcp2.BasicDataSource;
+
 import javax.json.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,20 +16,14 @@ public class CustomerServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
         super.init();
     }
 
     private Connection getconnection(){
         try {
-            return  DriverManager.getConnection("jdbc:mysql://localhost:3306/sample2","root","mysql");
+            return ((BasicDataSource)getServletContext().getAttribute("pool")).getConnection();
         } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
 
