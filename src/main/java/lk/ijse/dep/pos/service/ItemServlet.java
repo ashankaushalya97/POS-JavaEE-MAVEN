@@ -41,7 +41,7 @@ public class ItemServlet extends HttpServlet {
                 JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
                 objectBuilder.add("id",rst.getString(1));
                 objectBuilder.add("description",rst.getString(2));
-                objectBuilder.add("qty",rst.getInt(3));
+                objectBuilder.add("qty",rst.getString(3));
                 objectBuilder.add("unitPrice",rst.getString(4));
                 arrayBuilder.add(objectBuilder.build());
             }

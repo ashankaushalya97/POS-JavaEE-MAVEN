@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/api/v1/customer","/api/v1/item"})
+@WebFilter(urlPatterns = {"/api/v1/customer","/api/v1/item","/api/v1/order"})
 public class CorsFilter extends HttpFilter {
 
     @Override
